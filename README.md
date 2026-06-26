@@ -121,6 +121,13 @@ http://localhost:8000/api/
 - `http://localhost:8000/api/users/`
 - `http://localhost:8000/api/achievements/`
 
+Для списков включена постраничная выдача по 10 объектов. Доступны параметры `search` и `ordering`, например:
+
+```text
+http://localhost:8000/api/cats/?search=Barsik
+http://localhost:8000/api/cats/?ordering=birth_year
+```
+
 ## Запуск через Docker
 
 Перед запуском проверьте, что Docker и Docker Compose установлены:

@@ -13,7 +13,7 @@ User = get_user_model()
 
 
 class Achievement(models.Model):
-    name = models.CharField(max_length=64)
+    name = models.CharField(max_length=64, unique=True)
 
     def __str__(self):
         return self.name
@@ -37,6 +37,9 @@ class Cat(models.Model):
 class AchievementCat(models.Model):
     achievement = models.ForeignKey(Achievement, on_delete=models.CASCADE)
     cat = models.ForeignKey(Cat, on_delete=models.CASCADE)
+
+    class Meta:
+        unique_together = ('achievement', 'cat')
 
     def __str__(self):
         return f'{self.achievement} {self.cat}'
